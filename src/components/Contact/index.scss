@@ -52,24 +52,23 @@ textarea{
     box-sizing:border-box;
 }
 .flat-button{
-    color:#ffd700;
+    color:#87ceeb;
     background:00;
     font-size:11px;
     letter-spacing:3px;
     text-decoration:none;
     padding:8px 10px;
-    border:1px solid #ffd700;
+    border:1px solid #87ceeb;
     float:right;
-    border-radius:4px;
-}
+    border-radius:4px;}
 
 }
 
 .info-map{
     position:absolute;
-    background-color: #000;
+    background-color: #115173;
     top:50px;
-    right:30%;
+    right:20%;
     z-index:999999;
     width:267px;
     padding:20px;
@@ -85,20 +84,16 @@ textarea{
         font-size:16px;
         display:block;
         padding-top:20px;
-        color:#ffd700;
+        color:#87ceeb;
     }
 }
-
 .map-wrap{
     background:rgba(8,253,216,0.1);
     float:right;
     width:53%;
-    height:100%;
-    
+    height:100%;    
 }
-
 //The leaflet-container class is automatically added by the Leaflet library to the div that contains your map. This class is used to apply necessary styles to the map container.
-
 //In your case, when you use the MapContainer component from ‘react-leaflet’, a div with the class leaflet-container is created automatically. 
 
 .leaflet-container{
@@ -107,8 +102,37 @@ textarea{
     position:relative;
     opacity:0;
     animation:backInRight 1s 1.2s;
-    animation-fill-mode:forwards;   
+    animation-fill-mode:forwards;  
 
+}
+@media screen and (max-width:1024px)
+{
+    .info-map{
+        width: 187px;
+        font-size: 15px;
+        right: 20%;
+        background-color: #115173;
+        color:black;
+    }
+}
+@media screen and (max-width: 768px) {
+    .container.contact-page{
+        margin-bottom:150px;
+
+        .text-zone{
+            display:flex;
+            flex-direction:column;
+            width:80%;
+            
+        }
+        .info-map{
+           
+            display:none;
+        }
+        .map-wrap{
+            display:none;
+        }
+    }
 }
 
 

@@ -10,6 +10,8 @@ body {
   background:#022c43;
   overflow:hidden;
   display:block;
+  margin:0;
+  padding:0;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -38,10 +38,12 @@ return ()=>{
     <span className={`${letterClass} _12`}>'m</span>
 
     <img src={myinitial} alt="developer"/>
+   
     <AnimatedLetters letterClass={letterClass}
       strArray={nameArray}
       idx={15}
     />
+    
     <br/>
     <AnimatedLetters letterClass={letterClass}
       strArray={jobArray}

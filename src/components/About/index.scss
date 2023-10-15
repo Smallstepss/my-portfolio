@@ -1,3 +1,9 @@
+.container.about-page{
+   .text-zone{
+    left:15%;
+   }
+}
+
 .stage-cube-cont{
     width:50%;
     height:100%;
@@ -50,8 +56,6 @@
     }
     }
 
-
-
     @keyframes spincube{
         from,to{
             transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg);
@@ -72,3 +76,57 @@
             transform:rotateY(90deg) ;
         }
     }
+
+    @media screen and (max-width:768px){
+        .stage-cube-cont{
+            overflow:visible;
+            left:25%;
+            top:60%;
+            height:30%;
+            
+        }
+        .cubespinner{
+            div{
+                width:100px;
+                height:100px;
+            }
+            .face1{
+                transform:translateZ(50px);
+                .svg-inline--fa{
+                    height:.5em;
+                }
+            }
+            .face2{
+                transform:rotateY(90deg) translateZ(50px);
+                .svg-inline--fa{
+                    height:.5em;
+                }
+            }
+            .face3{
+               
+                transform:rotateY(90deg) rotateX(90deg) translateZ(50px);
+                .svg-inline--fa{
+                    height:.5em;
+                }
+            } 
+            .face4{
+                transform:rotateY(180deg) rotateZ(90deg)  translateZ(50px);
+                .svg-inline--fa{
+                    height:.5em;
+                }
+            }
+            .face5{
+                transform:rotateY(-90deg)  rotateZ(90deg)  translateZ(50px);
+                .svg-inline--fa{
+                    height:.5em;
+                }
+            }
+            .face6{
+                    transform:rotateX(-90deg) translateZ(50px);
+                    .svg-inline--fa{
+                        height:.5em;
+                    }
+                }
+        }
+    }
+   

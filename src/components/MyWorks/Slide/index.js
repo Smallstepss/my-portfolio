@@ -87,9 +87,10 @@ const ref=useTilt(active);
 
                 <div className="slideContentInner">
       
-                    <h1 className="slideTitle">{slide.title} </h1>      
-      
-                      
+                    <h1 className="slideTitle">{slide.title} </h1>
+                    <a href={slide.url} target="_blank" rel="noopener noreferrer">    
+                    <button className="demoButton">View Demo</button>
+                    </a>    
                 </div>   
            
               </div>

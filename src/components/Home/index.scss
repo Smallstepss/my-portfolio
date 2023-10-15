@@ -1,10 +1,10 @@
 .home-page{
     .text-zone{
         position:absolute;
-        left:10%;
+        left:20%;
         top:50%;
         transform:translateY(-50%);
-        width:40%;
+        width:80%;
         max-height:90%;
     }
     h1{
@@ -17,7 +17,7 @@
 &::before{
     content:'<h1>';
     font-family:'La Belle Aurore';
-    color: #ffd700;
+    color: #add8e6;
     font-size:18px;
     position:absolute;
     margin-top:-40px;    
@@ -28,7 +28,7 @@
 &::after{
     content:'<h1/>';
     font-family:'La Belle Aurore';
-    color: #ffd700;
+    color: #add8e6;
     font-size:18px;
     position:absolute;
     margin-top:18px;    
@@ -58,21 +58,45 @@
 }
 
 .flat-button{
-    color:#ffd700;
+    color:#87ceeb;
     font-size:13px;
     font-weight:400;
     letter-spacing:4px;
     font-family:sans-serif;
     text-decoration:none;
     padding:10px 18px;
-    border:1px solid #ffd700;
+    border:1px solid #87ceeb;
     margin-top:25px;
     float:left;
     animation:fadeIn 1s 1.8s backwards;
     white-space:nowrap;   
     &:hover{
-        background:#ffd700;
+        background:#add8e6;
         color:#333;
     } 
 
+}
+
+@media screen and (max-width:768px)
+{
+    .home-page{
+        .text-zone{
+            left:10%;
+        }
+    }
+}
+
+@media screen and (max-width:400px) {
+    .home-page {
+        .text-zone h1{
+        font-size:45px;
+    }
+}
+}
+@media screen and (max-width:280px) {
+    .home-page {
+    .text-zone h1{
+        font-size:35px;
+    }
+}
 }

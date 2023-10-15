@@ -6,7 +6,6 @@ import * as emailjs from "emailjs-com";
 import { MapContainer, TileLayer, Marker,Popup } from 'react-leaflet'
 
 const Contact = () => {
-
 const[letterClass,setLetterClass]=useState('text-animate');
 const refForm=useRef();
 
@@ -34,10 +33,7 @@ useEffect( ()=>{   const timeoutId= setTimeout(()=>
                     alert('Failed to send the message,please try again')
                 }
             )
-
     }
-
-
         return (
     <>
     <div className='container contact-page'>
@@ -87,7 +83,7 @@ useEffect( ()=>{   const timeoutId= setTimeout(()=>
             </div>
         </div>
         <div className='info-map'>
-        Reshma <br/>
+        Reshma 
         Jain <br/>
         Karnataka <br/>
         Bangalore <br/>
@@ -100,7 +96,6 @@ useEffect( ()=>{   const timeoutId= setTimeout(()=>
                 <Marker position={[12.975899,77.615378]} >
                     <Popup>Reshma lives here :)</Popup>
                 </Marker>
-
         </MapContainer>
 
         </div>
