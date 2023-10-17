@@ -1,7 +1,9 @@
-import React,{useReducer} from 'react'
+import React,{useReducer,Suspense,lazy} from 'react'
 //import {slides} from './../../data.js'
 import './index.scss'
-import Slide from './Slide/index.js'
+
+import Loader from 'react-loaders';
+
 import Aboutus from '../../assets/images/AboutusN.png';
 import Homepage from '../../assets/images/HomepageN.png';
 import Contact from '../../assets/images/ContactN.png';
@@ -10,6 +12,10 @@ import FAQ from '../../assets/images/FAQ-N.png';
 //slideIndex:Index of currently active slide
 //offset: determines how far each slide should be from active ide,both to left & right,to create visual effect of a continous loop.
 //i: index of currently mapped slide.
+
+const Slide = lazy(()=> import('./Slide/index.js'))
+
+
 
 const MyWorks = () => {
   const slides=[
@@ -63,6 +69,8 @@ const[state,dispatch]=useReducer(slidesReducer,initialState);
 
 
   return (
+    <>
+
     <div className="slides myWorks-page">
     
     <div className="slideBackground" style={{ 
@@ -72,7 +80,16 @@ const[state,dispatch]=useReducer(slidesReducer,initialState);
 
       let offset =slides.length+(state.slideIndex-i) ;
       
-      return <Slide slide={slide} offset={offset} key={i} />
+      return (
+
+        
+      <Suspense fallback={<Loader type="pacman" active/>  }>
+      
+      <Slide slide={slide} offset={offset} key={i} />
+   
+   </Suspense>
+      );
+   
     })}
 
    <div className="button-container">
@@ -85,6 +102,8 @@ const[state,dispatch]=useReducer(slidesReducer,initialState);
     </div>
     </div>
     </div>
+ 
+    </>
   )
 }
 

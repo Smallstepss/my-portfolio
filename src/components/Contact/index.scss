@@ -105,14 +105,19 @@ textarea{
     animation-fill-mode:forwards;  
 
 }
-@media screen and (max-width:1024px)
+@media screen and (max-width:1024px) and (min-width:913px)
 {
     .info-map{
-        width: 187px;
+        width: 200px;
         font-size: 15px;
         right: 20%;
         background-color: #115173;
         color:black;
+    }
+    .contact-form {
+        textarea{
+            min-height:80px;
+        }
     }
 }
 @media screen and (max-width: 768px) {
@@ -134,7 +139,25 @@ textarea{
         }
     }
 }
+@media screen and (max-width: 938px) and (min-width:769px){
+    .container.contact-page .text-zone{
+        left:15%;
+    }
+    .map-wrap{
+        width:43%;
+    }
+    .info-map{
+        width:200px;
+        right:5%;
+    }
+}
 
+@media screen and (max-width: 540px) {
+.contact-form textarea{
+    min-height:100px;
+}
+
+}
 
 
 

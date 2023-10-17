@@ -46,6 +46,21 @@ svg{
 }
    
 }
+
+@media screen and (max-width:856px) {
+
+    .logo-container {
+        .solid-logo{
+        left:70px;
+    }
+    svg{
+        left:70px;
+
+    }
+
+}
+
+}
 @media screen and (max-width:679px) {
 .solid-logo{
     visibility:hidden;
