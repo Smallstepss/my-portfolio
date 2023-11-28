@@ -1,8 +1,10 @@
-import React,{useReducer,Suspense,lazy} from 'react'
+import React,{useReducer,Suspense,lazy} from 'react';
 //import {slides} from './../../data.js'
 import './index.scss'
 
-import Loader from 'react-loaders';
+//import Loader from 'react-loaders';
+import SkeletonSlide from './SkeletonSlide';
+
 
 import Aboutus from '../../assets/images/AboutusN.png';
 import Homepage from '../../assets/images/HomepageN.png';
@@ -15,33 +17,34 @@ import FAQ from '../../assets/images/FAQ-N.png';
 
 const Slide = lazy(()=> import('./Slide/index.js'))
 
+const slides=[
+  {   
+      title:'Homepage',
+      image:Homepage,
+      url:"https://main--dapper-raindrop-4cb838.netlify.app/"
+
+  },
+  {  
+      title:'Aboutus',
+      image:Aboutus,
+      url:"https://main--dapper-raindrop-4cb838.netlify.app/"
+  },
+  {   
+      title:'contact',
+      image:Contact,
+      url:"https://main--dapper-raindrop-4cb838.netlify.app/"
+  },
+  {   
+      title:'FAQ',
+      image:FAQ,
+      url:"https://main--dapper-raindrop-4cb838.netlify.app/"
+  },
+  
+]
 
 
 const MyWorks = () => {
-  const slides=[
-    {   
-        title:'Homepage',
-        image:Homepage,
-        url:"https://main--dapper-raindrop-4cb838.netlify.app/"
-
-    },
-    {  
-        title:'Aboutus',
-        image:Aboutus,
-        url:"https://main--dapper-raindrop-4cb838.netlify.app/"
-    },
-    {   
-        title:'contact',
-        image:Contact,
-        url:"https://main--dapper-raindrop-4cb838.netlify.app/"
-    },
-    {   
-        title:'FAQ',
-        image:FAQ,
-        url:"https://main--dapper-raindrop-4cb838.netlify.app/"
-    },
-    
-]
+ 
 
 const initialState={
   slideIndex:0
@@ -83,7 +86,7 @@ const[state,dispatch]=useReducer(slidesReducer,initialState);
       return (
 
         
-      <Suspense fallback={<Loader type="pacman" active/>  }>
+      <Suspense fallback={<SkeletonSlide />}>
       
       <Slide slide={slide} offset={offset} key={i} />
    
