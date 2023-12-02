@@ -1,11 +1,7 @@
-import React,{useReducer,Suspense,lazy} from 'react';
-//import {slides} from './../../data.js'
+import React,{useReducer,useState,useEffect} from 'react';
 import './index.scss'
-
-//import Loader from 'react-loaders';
-import SkeletonSlide from './SkeletonSlide';
-
-
+import Slide from './Slide/index.js';
+import Loader from 'react-loaders';
 import Aboutus from '../../assets/images/AboutusN.png';
 import Homepage from '../../assets/images/HomepageN.png';
 import Contact from '../../assets/images/ContactN.png';
@@ -15,42 +11,50 @@ import FAQ from '../../assets/images/FAQ-N.png';
 //offset: determines how far each slide should be from active ide,both to left & right,to create visual effect of a continous loop.
 //i: index of currently mapped slide.
 
-const Slide = lazy(()=> import('./Slide/index.js'))
-
 const slides=[
   {   
       title:'Homepage',
       image:Homepage,
-      url:"https://main--dapper-raindrop-4cb838.netlify.app/"
+      url:"https://fastpay-easypay.netlify.app/"
 
   },
   {  
       title:'Aboutus',
       image:Aboutus,
-      url:"https://main--dapper-raindrop-4cb838.netlify.app/"
+      url:"https://fastpay-easypay.netlify.app/"
   },
   {   
       title:'contact',
       image:Contact,
-      url:"https://main--dapper-raindrop-4cb838.netlify.app/"
+      url:"https://fastpay-easypay.netlify.app/"
   },
   {   
       title:'FAQ',
       image:FAQ,
-      url:"https://main--dapper-raindrop-4cb838.netlify.app/"
+      url:"https://fastpay-easypay.netlify.app/"
   },
   
 ]
 
+const MyWorks = () => { 
 
-const MyWorks = () => {
- 
+const[loading,setLoading]=useState(false);
+
+useEffect( ()=>{
+  //simulateLoading delay
+setLoading(true);
+const timing=setTimeout(
+  ()=>{
+setLoading(false);
+  },1000);
+return () => clearTimeout(timing);
+} , []);
+
 
 const initialState={
   slideIndex:0
   
 };
-
 
 const slidesReducer=(state,event)=>{
  if( event.type==='NEXT'){
@@ -70,38 +74,29 @@ const slidesReducer=(state,event)=>{
 
 const[state,dispatch]=useReducer(slidesReducer,initialState);
 
-
   return (
     <>
 
     <div className="slides myWorks-page">
     
     <div className="slideBackground" style={{ 
-  backgroundImage: `url(${slides[state.slideIndex].image})` 
-}}></div>   
-    {[...slides,...slides,...slides].map((slide,i)=>{
+
+  backgroundImage: `url(${slides[state.slideIndex].image})` }}></div>   
+    
+    {[...slides,...slides,...slides].map((slide,i) => {
 
       let offset =slides.length+(state.slideIndex-i) ;
       
-      return (
-
-        
-      <Suspense fallback={<SkeletonSlide />}>
+      return loading? (<Loader type="pacman" />) :
       
-      <Slide slide={slide} offset={offset} key={i} />
-   
-   </Suspense>
-      );
-   
+      (<Slide slide={slide} offset={offset} key={i} />);
+     
     })}
-
    <div className="button-container">
    <div className="button-placer">
     <button className="desktop-button" onClick={()=>{dispatch({type:"PREV"})}}> &lt; </button>
     <button className="desktop-button" onClick={()=>{dispatch({type:"NEXT"})}}> &gt; </button>
-   
-    
-    
+       
     </div>
     </div>
     </div>

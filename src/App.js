@@ -5,7 +5,7 @@ import Home from './components/Home'
 import About from './components/About'
 import Contact from './components/Contact'
 import MyWorks from './components/MyWorks'
-import SkeletonSlide from './components/MyWorks/SkeletonSlide.js'
+
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
 <Route path="/About" element={<Layout><About /></Layout>} />
 <Route path="/Contact" element={<Layout><Contact /></Layout>} />
 <Route path="/MyWorks" element={<Layout isMyWorks><MyWorks /></Layout>} />
-<Route path="/SkeletonSlide" element={<Layout ><SkeletonSlide /></Layout>} />
+
 
 </Routes>
 </>
